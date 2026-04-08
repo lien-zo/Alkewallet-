@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alke Wallet - Últimos Movimientos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="menu.html">
+                <i class="bi bi-wallet2"></i> Alke Wallet
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Menú Principal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html" id="logoutBtn">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                <!-- Header -->
+                <div class="mb-5">
+                    <h2 class="mb-2">Últimos Movimientos</h2>
+                    <p class="text-muted">Historial completo de tus transacciones</p>
+                </div>
+
+                <!-- Filter Section -->
+                <div class="card mb-4">
+                    <div class="card-body p-4">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="filterType" class="form-label">Filtrar por tipo</label>
+                                <select class="form-select" id="filterType">
+                                    <option value="">Todos los movimientos</option>
+                                    <option value="deposit">Depósitos</option>
+                                    <option value="transfer">Transferencias enviadas</option>
+                                    <option value="received">Transferencias recibidas</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="sortOrder" class="form-label">Ordenar por</label>
+                                <select class="form-select" id="sortOrder">
+                                    <option value="desc">Más recientes primero</option>
+                                    <option value="asc">Más antiguos primero</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary Cards -->
+                <div class="row g-3 mb-5">
+                    <div class="col-md-4">
+                        <div class="card bg-light border-0">
+                            <div class="card-body text-center">
+                                <p class="card-text text-muted mb-2">Total Depositado</p>
+                                <h5 class="mb-0" id="totalDeposited">CLP $0</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-light border-0">
+                            <div class="card-body text-center">
+                                <p class="card-text text-muted mb-2">Total Transferido</p>
+                                <h5 class="mb-0" id="totalTransferred">CLP $0</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-light border-0">
+                            <div class="card-body text-center">
+                                <p class="card-text text-muted mb-2">Total Recibido</p>
+                                <h5 class="mb-0" id="totalReceived">CLP $0</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transactions Table -->
+                <div class="card shadow-sm">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Tipo</th>
+                                    <th>Concepto</th>
+                                    <th>Monto</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactionsBody">
+                                <tr>
+                                    <td colspan="5" class="text-center py-4 text-muted">
+                                        No hay movimientos registrados
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div id="emptyState" class="text-center py-5 d-none">
+                    <p class="text-muted">No hay transacciones que coincidan con el filtro seleccionado</p>
+                </div>
+
+                <!-- Pagination -->
+                <nav id="paginationNav" class="mt-4 d-none">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item" id="prevPage"><a class="page-link" href="#">Anterior</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item" id="nextPage"><a class="page-link" href="#">Siguiente</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Back Button -->
+                <div class="text-center mt-5">
+                    <a href="menu.html" class="btn btn-secondary">
+                        Volver al Menú Principal
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light py-4 mt-5 border-top">
+        <div class="container text-center text-muted small">
+            <p>&copy; 2025 Alke Wallet. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/transactions.js"></script>
+</body>
+</html>
